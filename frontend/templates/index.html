@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Pronunciation Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title animate-pulse">✨ Chọn từ để kiểm tra phát âm ✨</h1>
+        
+        <div class="words-grid">
+            {% for word in words %}
+            <button class="word-button" data-word="{{ word }}">
+                {{ word }}
+            </button>
+            {% endfor %}
+        </div>
+
+        <div id="checkModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="selectedWord"></h2>
+                <button id="recordButton" class="record-button">
+                    🎤 Kiểm tra phát âm
+                </button>
+                <p id="result" class="result"></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
